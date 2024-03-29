@@ -1,4 +1,17 @@
 
+import streamlit as st
+import pandas as pd
+import statsmodels.api as sm
+import numpy as np
+
+# Load your data
+data_inclusivo = pd.read_csv("mortality.csv")  # Adjust filename and path as necessary
+
+# Define your OLS model
+model_ols_2 = 'Diarrheal_Diseases ~ pca0 + Meningitis'
+lm_ols_2 = sm.OLS.from_formula(formula=model_ols_2, data=data_inclusivo).fit()
+
+
 # Function to make predictions
 def predict_diarrheal_diseases(pca0, meningitis):
     # Make prediction
